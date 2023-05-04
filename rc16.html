@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery on() method example</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("button").on("click", {foo: "bar"}, function(event){
+				// get the data passed with the on() method
+				var eventData = event.data;
+				
+				// display the data in an alert box
+				alert("The data passed with the on() method is: " + eventData.foo);
+			});
+		});
+	</script>
+</head>
+<body>
+	<h2>jQuery on() method example</h2>
+	<button>Click me</button>
+</body>
+</html>

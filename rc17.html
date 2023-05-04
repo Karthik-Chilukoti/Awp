@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mouse position example</title>
+	<script>
+		function getMousePosition(event) {
+			// get the x and y coordinates of the mouse pointer relative to the viewport
+			var x = event.clientX;
+			var y = event.clientY;
+			
+			// get the x and y coordinates of the mouse pointer relative to the HTML document
+			var docX = document.documentElement.scrollLeft + x;
+			var docY = document.documentElement.scrollTop + y;
+			
+			// display the coordinates in the heading element
+			document.getElementById("coords").innerHTML = "Mouse position: (" + docX + ", " + docY + ")";
+		}
+	</script>
+</head>
+<body onmousemove="getMousePosition(event)">
+	<h1 id="coords">Mouse position: (0, 0)</h1>
+</body>
+</html>

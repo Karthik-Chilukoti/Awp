@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Browser Information</title>
+	<script>
+		function displayBrowserInfo() {
+			var ua = navigator.userAgent;
+			var browserName = "";
+			var browserVersion = "";
+			var browserOS = "";
+			
+			// detect browser name and version
+			if (ua.indexOf("Firefox") != -1) {
+				browserName = "Mozilla Firefox";
+				browserVersion = ua.match(/Firefox\/([\d\.]+)/)[1];
+			} else if (ua.indexOf("Chrome") != -1) {
+				browserName = "Google Chrome";
+				browserVersion = ua.match(/Chrome\/([\d\.]+)/)[1];
+			} else if (ua.indexOf("Safari") != -1) {
+				browserName = "Apple Safari";
+				browserVersion = ua.match(/Safari\/([\d\.]+)/)[1];
+			} else if (ua.indexOf("MSIE") != -1 || ua.indexOf("Trident") != -1) {
+				browserName = "Microsoft Internet Explorer";
+				browserVersion = ua.match(/(?:MSIE |Trident\/.*?; rv:)([\d\.]+)/)[1];
+			} else {
+				browserName = "Unknown";
+			}
+			
+			// detect operating system
+			if (ua.indexOf("Windows") != -1) {
+				browserOS = "Windows";
+			} else if (ua.indexOf("Macintosh") != -1) {
+				browserOS = "Mac OS X";
+			} else if (ua.indexOf("Linux") != -1) {
+				browserOS = "Linux";
+			} else {
+				browserOS = "Unknown";
+			}
+			
+			// display browser information on the page
+			document.getElementById("browser-name").innerHTML = browserName;
+			document.getElementById("browser-version").innerHTML = browserVersion;
+			document.getElementById("browser-os").innerHTML = browserOS;
+		}
+	</script>
+</head>
+<body onload="displayBrowserInfo()">
+	<h2>Browser Information</h2>
+	<p><strong>Name:</strong> <span id="browser-name"></span></p>
+	<p><strong>Version:</strong> <span id="browser-version"></span></p>
+	<p><strong>Operating System:</strong> <span id="browser-os"></span></p>
+</body>
+</html>

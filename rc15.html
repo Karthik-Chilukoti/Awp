@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Effects Example</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			// hide the element with id="myDiv"
+			$("#myDiv").hide();
+			
+			// show the element with id="myDiv" slowly when the button is clicked
+			$("#myButton").click(function(){
+				$("#myDiv").show("slow");
+			});
+			
+			// change the background color of the element with id="myDiv" when the mouse is over it
+			$("#myDiv").hover(function(){
+				$(this).css("background-color", "yellow");
+			}, function(){
+				$(this).css("background-color", "white");
+			});
+		});
+	</script>
+	<style>
+		#myDiv {
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+			text-align: center;
+			padding-top: 50px;
+			font-size: 24px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<h2>jQuery Effects Example</h2>
+	<button id="myButton">Show My Div</button>
+	<div id="myDiv">This is my div</div>
+</body>
+</html>
